@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import Card from "./Card";
 
 const Characters = () => {
   const [characters, setCharacters] = useState([]);
@@ -10,9 +11,15 @@ const Characters = () => {
   }, []);
 
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexWrap: "wrap",
+        justifyContent: "space-between",
+      }}
+    >
       {characters.map((character) => (
-        <h2>{character.name}</h2>
+        <Card {...character} location={character.origin} />
       ))}
     </div>
   );

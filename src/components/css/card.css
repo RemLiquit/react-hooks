@@ -1,0 +1,29 @@
+* {
+  font-size: 62.5%;
+  font-size: 1rem;
+}
+
+.container {
+  margin: 1rem 1rem;
+  width: 220px;
+  height: 280px;
+  padding: 0.5rem;
+  border: 1px solid #454445;
+  box-shadow: 0.5rem 0.5rem #454545;
+  display: inline-block;
+}
+
+.container_image {
+  width: 200px;
+  height: 170px;
+  display: inline;
+  text-align: center;
+}
+
+.container_span {
+  display: inline-block;
+}
+
+.container_span span {
+  display: block;
+}
