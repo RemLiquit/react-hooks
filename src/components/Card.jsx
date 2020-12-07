@@ -25,11 +25,6 @@ const Card = (props) => {
 
   return (
     <div>
-      <div>
-        {favorites.favorites.map((favorite) => (
-          <li key={props.id}>{props.name}</li>
-        ))}
-      </div>
       <div className="container">
         <div>
           <img src={props.image} alt="" className="container_image" />
