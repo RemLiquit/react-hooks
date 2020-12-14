@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useReducer, useMemo } from "react";
+import React, { useState, useEffect, useReducer, useMemo, useRef } from "react";
 import "./css/card.css";
 
 const initialState = {
@@ -24,9 +24,11 @@ const Characters = () => {
   };
   const [favorites, dispatch] = useReducer(favoriteReducer, initialState);
   const [search, setSearch] = useState("");
-  const handleSearch = (event) => {
-    setSearch(event.target.value);
+  const handleSearch = () => {
+    setSearch(searchInput.current.value);
   };
+
+  const searchInput = useRef(null);
 
   // const filteredUsers = characters.filter((user) => {
   //   return user.name.toLowerCase().includes(search.toLowerCase());
@@ -55,7 +57,12 @@ const Characters = () => {
       }}
     >
       <div className="Search">
-        <input type="text" value={search} onChange={handleSearch} />
+        <input
+          type="text"
+          value={search}
+          ref={searchInput}
+          onChange={handleSearch}
+        />
       </div>
       <div className="Favorites">
         {favorites.favorites.map((favorite) => (

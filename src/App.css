@@ -3,11 +3,11 @@
 }
 
 .bg_light {
-  background-color: #fafafafa;
-  color: black;
+  background-color: #cce6ff;
+  color: #131c21;
 }
 
 .bg_dark {
-  background-color: black;
-  color: #fafafafa;
+  background-color: #131c21;
+  color: #cce6ff;
 }
