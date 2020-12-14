@@ -1,5 +1,13 @@
-import React, { useState, useEffect, useReducer, useMemo, useRef } from "react";
+import React, {
+  useState,
+  useEffect,
+  useReducer,
+  useMemo,
+  useRef,
+  useCallback,
+} from "react";
 import "./css/card.css";
+import Search from "./Search";
 
 const initialState = {
   favorites: [],
@@ -24,9 +32,14 @@ const Characters = () => {
   };
   const [favorites, dispatch] = useReducer(favoriteReducer, initialState);
   const [search, setSearch] = useState("");
-  const handleSearch = () => {
+
+  // const handleSearch = () => {
+  //   setSearch(searchInput.current.value);
+  // };
+
+  const handleSearch = useCallback(() => {
     setSearch(searchInput.current.value);
-  };
+  }, []);
 
   const searchInput = useRef(null);
 
@@ -56,14 +69,11 @@ const Characters = () => {
         justifyContent: "space-between",
       }}
     >
-      <div className="Search">
-        <input
-          type="text"
-          value={search}
-          ref={searchInput}
-          onChange={handleSearch}
-        />
-      </div>
+      <Search
+        search={search}
+        searchInput={searchInput}
+        handleSearch={handleSearch}
+      />
       <div className="Favorites">
         {favorites.favorites.map((favorite) => (
           <div style={{ display: "grid" }}>
